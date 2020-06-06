@@ -22,10 +22,10 @@ RUN echo mysql-server mysql-server/root_password password ${MYSQL_ROOT_PASSWORD}
     echo mysql-server mysql-server/root_password_again password ${MYSQL_ROOT_PASSWORD} | debconf-set-selections;\
     apt-get install -y mysql-server
 
-RUN service mysql start && \
-    mysql -uroot -p${MYSQL_ROOT_PASSWORD} < /wisemapping-v${WISE_VERSION}/config/database/mysql/create-database.sql && \
-    mysql -uwisemapping -Dwisemapping -ppassword < /wisemapping-v${WISE_VERSION}/config/database/mysql/create-schemas.sql && \
-    mysql -uwisemapping -Dwisemapping -ppassword < /wisemapping-v${WISE_VERSION}/config/database/mysql/apopulate-schemas.sql
+#RUN service mysql start && \
+#    mysql -uroot -p${MYSQL_ROOT_PASSWORD} < /wisemapping-v${WISE_VERSION}/config/database/mysql/create-database.sql && \
+#    mysql -uwisemapping -Dwisemapping -ppassword < /wisemapping-v${WISE_VERSION}/config/database/mysql/create-schemas.sql && \
+#    mysql -uwisemapping -Dwisemapping -ppassword < /wisemapping-v${WISE_VERSION}/config/database/mysql/apopulate-schemas.sql
 
 # Install Java 8
 #RUN apt-get install -y software-properties-common && \
