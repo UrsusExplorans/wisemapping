@@ -10,11 +10,11 @@ ENV WISE_VERSION 4.0.3
 
 run apt-get update && apt-get upgrade -y
 # Install utilities
-RUN apt-get install -y zip curl
+RUN apt-get install -y zip wget
 
 # Prepare distribution
 #COPY target/wisemapping-v${WISE_VERSION}.zip .
-RUN curl https://bitbucket.org/wisemapping/wisemapping-open-source/downloads/wisemapping-v${WISE_VERSION}.zip -o ./wisemapping-v${WISE_VERSION}.zip
+RUN wget https://bitbucket.org/wisemapping/wisemapping-open-source/downloads/wisemapping-v${WISE_VERSION}.zip
 RUN unzip wisemapping-v${WISE_VERSION}.zip
 
 # Install MySQL
