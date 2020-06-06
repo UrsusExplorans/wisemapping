@@ -35,7 +35,7 @@ RUN echo mysql-server mysql-server/root_password password ${MYSQL_ROOT_PASSWORD}
 #RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections;\
 #    echo oracle-java8-installer shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections;\
 #    sudo apt-get install -y oracle-java8-installer
-RUN apt-get install -x openjdk-8-jre-headless
+RUN apt-get install -y openjdk-8-jre-headless
 
 # Configure instance
 COPY docker-conf/app.properties wisemapping-v${WISE_VERSION}/webapps/wisemapping/WEB-INF/app.properties
