@@ -2,15 +2,15 @@
 # Based on ubuntu:latest, installs WiseMapping (http://ww.wisemapping.org)
 
 FROM       ubuntu:16.04
-MAINTAINER Paulo Gustavo Veiga <pveiga@wisemapping.com>
+#MAINTAINER Paulo Gustavo Veiga <pveiga@wisemapping.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV MYSQL_ROOT_PASSWORD password
 ENV WISE_VERSION 4.0.2
 
+run apt-get update && apt-get upgrade -y
 # Install utilities
-#RUN apt-get install -y zip
-RUN apt-get install -y unzip
+RUN apt-get install -y zip
 
 # Prepare distribution
 COPY target/wisemapping-v${WISE_VERSION}.zip .
