@@ -26,16 +26,17 @@ RUN service mysql start && \
     mysql -uwisemapping -Dwisemapping -ppassword < /wisemapping-v${WISE_VERSION}/config/database/mysql/apopulate-schemas.sql
 
 # Install Java 8
-RUN apt-get install -y software-properties-common && \
-    add-apt-repository ppa:webupd8team/java && \
-    apt-get update
-
-RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections;\
-    echo oracle-java8-installer shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections;\
-    sudo apt-get install -y oracle-java8-installer
+#RUN apt-get install -y software-properties-common && \
+#    add-apt-repository ppa:webupd8team/java && \
+#    apt-get update
+#
+#RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections;\
+#    echo oracle-java8-installer shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections;\
+#    sudo apt-get install -y oracle-java8-installer
+RUN apt-get install -x openjdk-8-jre-headless
 
 # Configure instance
-COPY docker-conf/app.properties wisemapping-v4.0.1/webapps/wisemapping/WEB-INF/app.properties
+COPY docker-conf/app.properties wisemapping-v${WISE_VERSION}/webapps/wisemapping/WEB-INF/app.properties
 
 # Clean up
 RUN apt-get clean
