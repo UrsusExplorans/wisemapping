@@ -9,7 +9,8 @@ ENV MYSQL_ROOT_PASSWORD password
 ENV WISE_VERSION 4.0.2
 
 # Install utilities
-RUN apt-get install -y zip
+#RUN apt-get install -y zip
+RUN apt-get install -y unzip
 
 # Prepare distribution
 COPY target/wisemapping-v${WISE_VERSION}.zip .
