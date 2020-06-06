@@ -1,7 +1,7 @@
 # Dockerizing WiseMapping: Dockerfile for building WiseMapping images
 # Based on ubuntu:latest, installs WiseMapping (http://ww.wisemapping.org)
 
-FROM       ubuntu:latest
+FROM       ubuntu:16.04
 MAINTAINER Paulo Gustavo Veiga <pveiga@wisemapping.com>
 
 ENV DEBIAN_FRONTEND noninteractive
