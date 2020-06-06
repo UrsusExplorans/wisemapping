@@ -6,14 +6,15 @@ FROM       ubuntu:16.04
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV MYSQL_ROOT_PASSWORD password
-ENV WISE_VERSION 4.0.2
+ENV WISE_VERSION 4.0.3
 
 run apt-get update && apt-get upgrade -y
 # Install utilities
-RUN apt-get install -y zip
+RUN apt-get install -y zip curl
 
 # Prepare distribution
-COPY target/wisemapping-v${WISE_VERSION}.zip .
+#COPY target/wisemapping-v${WISE_VERSION}.zip .
+RUN curl https://bitbucket.org/wisemapping/wisemapping-open-source/downloads/wisemapping-v${WISE_VERSION}.zip -o ./wisemapping-v${WISE_VERSION}.zip
 RUN unzip wisemapping-v${WISE_VERSION}.zip
 
 # Install MySQL
